@@ -11,10 +11,10 @@ from within RStudio. This will allow the tidying function to do what it needs to
 
 The steps for tidying the data are relatively straightforward, and I've set up functions that allow different tidying operations to occur at various levels. The steps are basically this:
 
-    1. Load the raw data (from both the train and test directories). There is a tiny bit of tidying done here, where it merges the data that is split across several files and stores them in a sinlge data.frame. Specifically, it loads the activity labels, makes the strings tidier, and adds a new column to the raw data to hold the string value of the activity being performed for each row. It also adds the user ID to each row.
-	2. Strip out only the data that we are interested in -- std() and mean() columns. (Also, keep the identifying columns -- userID and activity.)
-	3. Fix the column names to be easier to read. This strips out all non-alpha-numeric characters, replaces "t" and "f" abbreviations with "time" and "frequency" respectively, and makes the entire string proper camel case. 
-	4. Take the data, group it by user and activity, and take the mean of each one. This is the tidying step. The output data is a full frame of just the means for each user broken down by activity.
+1. Load the raw data (from both the train and test directories). There is a tiny bit of tidying done here, where it merges the data that is split across several files and stores them in a sinlge data.frame. Specifically, it loads the activity labels, makes the strings tidier, and adds a new column to the raw data to hold the string value of the activity being performed for each row. It also adds the user ID to each row.
+2. Strip out only the data that we are interested in -- std() and mean() columns. (Also, keep the identifying columns -- userID and activity.)
+3. Fix the column names to be easier to read. This strips out all non-alpha-numeric characters, replaces "t" and "f" abbreviations with "time" and "frequency" respectively, and makes the entire string proper camel case. 
+4. Take the data, group it by user and activity, and take the mean of each one. This is the tidying step. The output data is a full frame of just the means for each user broken down by activity.
 	
 To actually perform these steps, once the source file is loaded, set the current working directory to the base directory in the zipped data file ("UCI HAR Dataset"). There should be several files in the working directory (such as features.txt and activity_labels.txt) and two directories, test and train, which house the actual data.
 
